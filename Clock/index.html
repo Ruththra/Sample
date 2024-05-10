@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Digital Clock</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onclick="changeBackgroundColor()">
+
+    <div class="hero" id="hero" onclick="changeBackgroundColor()">
+        <div class="container" id="container" onclick="changeBackgroundColor()">
+            <div class="clock" id="clock" onclick="changeBackgroundColor()">
+                <span id="hrs">00</span>
+                <span>:</span>
+                <span id="min">00</span>
+                <span >:</span>
+                <span id="sec">00</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        let hero=document.querySelector('.hero')
+        let clock=document.querySelector('.clock')
+        let container=document.querySelector('.container')
+        function changeBackgroundColor() {
+        var randomColor = getRandomColor();
+        // document.body.style.backgroundColor = randomColor;
+        hero.style.backgroundColor = randomColor;
+        // clock.style.backgroundColor = randomColor;
+        // container.style.backgroundColor = randomColor;
+    }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+        let hrs=document.getElementById("hrs")
+        let min=document.getElementById("min")
+        let sec=document.getElementById("sec")
+
+        setInterval(()=>{
+            let currentTime = new Date();
+
+            hrs.innerHTML = (currentTime.getHours()<10?"0":"")+ currentTime.getHours();
+            min.innerHTML = (currentTime.getMinutes()<10?"0":"")+ currentTime.getMinutes();
+            sec.innerHTML = (currentTime.getSeconds()<10?"0":"")+ currentTime.getSeconds();
+        },1000)
+        
+
+    </SCRipt>
+</body>
+</html>
